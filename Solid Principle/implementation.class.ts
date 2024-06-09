@@ -40,6 +40,8 @@ export class SimpleTranslator implements TranslatorInterface {
 export class SimpleMailer implements MailerInterface {
   send(message: Message): void {
     console.log(`Sending email to: ${message.to}`);
+    console.log(`Subject: ${message.subject} `);
+    console.log(`Body: ${message.body}`);
   }
 }
 
