@@ -1,4 +1,5 @@
-import { ConfirmatinoMailMailer } from "./ConfirmationMailMailer.class";
+import { ConfirmationMailFactory } from "./ConfirmationMailFactory.class";
+import { ConfirmationMailMailer } from "./ConfirmationMailMailer.class";
 import {
   SimpleMailer,
   SimpleTemplatingEngine,
@@ -10,9 +11,12 @@ const templatingEngine = new SimpleTemplatingEngine();
 const translator = new SimpleTranslator();
 const mailer = new SimpleMailer();
 
-const confirmationMailMailer = new ConfirmatinoMailMailer(
+const confirmationMailFactory = new ConfirmationMailFactory(
   templatingEngine,
-  translator,
+  translator
+);
+const confirmationMailMailer = new ConfirmationMailMailer(
+  confirmationMailFactory,
   mailer
 );
 
